@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TrailArc
 
-## Getting Started
+**From the driveway to the dirt.** TrailArc helps 4×4 owners find legal trails,
+book access to private land, build skills and join a community — and gives
+landowners and vehicle brands a reason to be part of it.
 
-First, run the development server:
+This repository currently holds a **clickable concept demo** for partner and
+investor review, set in a Virginia pilot. All properties, hosts and metrics are
+illustrative sample data.
+
+## Demo tour
+
+| Page | What it shows |
+|---|---|
+| `/` | The story: the middle-80% problem, the platform, pilot targets |
+| `/explore/` | Map of Virginia trails, private properties and events with filters |
+| `/trails/[slug]/` | Trail detail: route map, elevation, access assurance, host, reviews |
+| `/book/[slug]/` | Booking: trip → waiver → payment → badge unlock & rank-up |
+| `/passport/` | Explorer profile: rank, badges, garage (Grenadier), trips. Find Bigfoot. |
+| `/host/` | Landowner dashboard: payouts, guests, protection, trail reports |
+| `/partners/` | OEM partner insights: owner activity, terrain mix, flywheel, events |
+
+Suggested walkthrough: Explore → Hollow Creek Ranch → Reserve → complete the
+booking → Passport → For Landowners → For Partners. Use **Reset demo** in the
+footer to start over.
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # static site in out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site is a static export, so any static host works:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **GitHub Pages** — enable Pages (Settings → Pages → Source: GitHub Actions);
+  the included workflow builds and publishes on every push to `main`.
+- **Vercel / Netlify** — import the repo; build command `npm run build`,
+  output directory `out`.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `docs/product-brief.md` for the product context and `CLAUDE.md` for
+development notes.

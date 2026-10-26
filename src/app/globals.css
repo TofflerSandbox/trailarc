@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo Variable", "Inter Variable", ui-sans-serif, sans-serif;
+
+  /* Forest — primary brand */
+  --color-forest-50: #eef6f1;
+  --color-forest-100: #d5eadd;
+  --color-forest-200: #a9d3b9;
+  --color-forest-300: #74b58f;
+  --color-forest-500: #2f7a57;
+  --color-forest-600: #22684a;
+  --color-forest-700: #1d5c43;
+  --color-forest-800: #164a36;
+  --color-forest-900: #0f3426;
+  --color-forest-950: #0a231a;
+
+  /* Amber — accent / calls to action */
+  --color-amber-50: #fdf5e8;
+  --color-amber-100: #fae6c4;
+  --color-amber-400: #f0a640;
+  --color-amber-500: #e08a1e;
+  --color-amber-600: #c47313;
+  --color-amber-700: #9c5a10;
+
+  /* Sand — warm neutrals */
+  --color-sand-50: #fbf9f5;
+  --color-sand-100: #f5f1ea;
+  --color-sand-200: #ebe4d8;
+  --color-sand-300: #dcd2c1;
+  --color-sand-500: #a79a85;
+
+  /* Ink — text */
+  --color-ink-900: #18211d;
+  --color-ink-700: #3a4540;
+  --color-ink-500: #66716b;
+  --color-ink-400: #8a948f;
+
+  /* Trail difficulty (ski-style ratings) */
+  --color-diff-green: #2f8f4e;
+  --color-diff-blue: #2563eb;
+  --color-diff-black: #18211d;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-sand-100);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-stretch: 112%;
+  letter-spacing: -0.01em;
+}
+
+.topo-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.07' stroke-width='1.2'%3E%3Cpath d='M-20 80 C 60 40 120 120 200 80 S 340 40 420 90'/%3E%3Cpath d='M-20 110 C 60 70 130 150 200 110 S 340 70 420 120'/%3E%3Cpath d='M-20 140 C 70 100 130 180 210 140 S 330 100 420 150'/%3E%3Cpath d='M-20 210 C 50 180 140 250 220 205 S 350 170 420 220'/%3E%3Cpath d='M-20 240 C 50 210 140 280 220 235 S 350 200 420 250'/%3E%3Cpath d='M-20 310 C 80 280 140 350 230 300 S 340 270 420 320'/%3E%3Cpath d='M-20 340 C 80 310 140 380 230 330 S 340 300 420 350'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop-in {
+  animation: pop-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes rise {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-rise {
+  animation: rise 0.5s ease-out both;
+}
+
+.maplibregl-popup-content {
+  border-radius: 12px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.2) !important;
 }
